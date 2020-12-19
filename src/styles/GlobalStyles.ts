@@ -1,26 +1,33 @@
 import { createGlobalStyle } from 'styled-components';
 
+
+
 export default createGlobalStyle`
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+  font-family: "Ubuntu", sans-serif;
+
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;    
   }
   html, body, #root {
-    height: 100%;    
+    height: 100%;
+
+    /* Each rem equals to 10 */
+    font-size: 10px; 
   }
   *, button, input {
       border:0;
       outline: 0;
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Ubuntu', sans-serif;
   }
   :root {
-    --primary: #36393f;
-    --secondary: #2f3136;
-    --tertiary: rgb(32,34,37);
-    --quaternary: #292b2f;
-    --quinary: #393d42;
-    --senary: #828386;
+    --primary-black: #272932;
+    --secondary-light: #E7ECEF;
+    --third-green: #0f7173;
+    --fourth-red: #F05D5E;
+    --fifth-brown: #F05D5E;
  
     --white: #fff;
     --gray: #8a8c90;

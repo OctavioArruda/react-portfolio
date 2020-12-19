@@ -1,19 +1,21 @@
 import React from "react";
 
-import { Nav } from "./styles";
-import { FaMap } from "react-icons/fa";
-import { GiSpikedDragonHead } from "react-icons/gi";
+import { Nav, List, Logo, Link } from "./styles";
+import { GiSpikedDragonHead, GiHamburgerMenu } from "react-icons/gi";
 
 const Navbar: React.FC = () => {
   return (
     <>
       <Nav>
-        <a href="https://www.linkedin.com/in/octavio-arruda/" target="_blank">
-          <span>
+        <Link
+          href="https://www.linkedin.com/in/octavio-arruda/"
+          target="_blank"
+        >
+          <Logo>
             <GiSpikedDragonHead />
-          </span>
-          <h4>Octavio Arruda</h4>
-        </a>
+            <p>Octavio Arruda</p>
+          </Logo>
+        </Link>
         {/* Responsive hamburguer button */}
         <button
           className="navbar-toggler"
@@ -25,27 +27,30 @@ const Navbar: React.FC = () => {
           aria-label="Toggle navigation"
         >
           <span>
-            <FaMap />
+            <GiHamburgerMenu />
           </span>
         </button>
         <div>
-          <ul>
+          <List>
             <li>
-              <a href="" className="nav-link">
+              <Link href="" className="nav-link">
+                Home
+              </Link>
+              <Link href="" className="nav-link">
                 Experiences
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="" className="nav-link">
+              <Link href="" className="nav-link">
                 About me
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="" className="nav-link">
+              <Link href="" className="nav-link">
                 Contact
-              </a>
+              </Link>
             </li>
-          </ul>
+          </List>
         </div>
       </Nav>
     </>
