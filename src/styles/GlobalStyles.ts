@@ -4,15 +4,16 @@ import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
-  font-family: "Ubuntu", sans-serif;
-
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;    
   }
+
   html, body, #root {
     height: 100%;
+
+    font-family: "Ubuntu", sans-serif;
 
     /* Each rem equals to 10 */
     font-size: 10px; 
