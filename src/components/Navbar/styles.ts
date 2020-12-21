@@ -9,6 +9,10 @@ export const Nav = styled.nav`
   background-color: var(--primary-black);
   padding: 0 2rem;
   height: 6rem;  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 
   button {
     display: none;
