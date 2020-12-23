@@ -6,6 +6,7 @@ export const Nav = styled.nav`
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
+  z-index: 1;
   background-color: var(--primary-black);
   padding: 0 2rem;
   height: 6rem;  
