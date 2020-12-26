@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 
-import { Nav, List, Logo, Link } from "./styles";
-import { GiSpikedDragonHead, GiHamburgerMenu } from "react-icons/gi";
+import { Nav, List, Logo, Link, ResponsiveButton } from "./styles";
+import { GiSpikedDragonHead } from "react-icons/gi";
 
 const Navbar: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const navLinkItems = [
+    { href: "", label: "Home" },
+    { href: "", label: "Experiences" },
+    { href: "", label: "About me" },
+    { href: "", label: "Contact" },
+  ];
+
   return (
     <Nav>
       <Link href="https://www.linkedin.com/in/octavio-arruda/" target="_blank">
@@ -12,8 +21,7 @@ const Navbar: React.FC = () => {
           <p>Octavio Arruda</p>
         </Logo>
       </Link>
-      {/* Responsive hamburguer button */}
-      <button
+      <ResponsiveButton
         className="navbar-toggler"
         type="button"
         data-toggle="collapse"
@@ -21,33 +29,22 @@ const Navbar: React.FC = () => {
         aria-controls="navbarSupportedContent"
         aria-expanded="false"
         aria-label="Toggle navigation"
+        onClick={() => setIsOpen((prev) => !prev)}
+        isOpen={isOpen}
       >
-        <span>
-          <GiHamburgerMenu />
-        </span>
-      </button>
-      <div>
-        <List>
-          <li>
-            <Link href="" className="nav-link">
-              Home
-            </Link>
-            <Link href="" className="nav-link">
-              Experiences
+        <div className="line-1"></div>
+        <div className="line-2"></div>
+        <div className="line-3"></div>
+      </ResponsiveButton>
+      <List isOpen={isOpen}>
+        {navLinkItems.map(({ href, label }, index) => (
+          <li key={index}>
+            <Link href={href} className="nav-link">
+              {label}
             </Link>
           </li>
-          <li>
-            <Link href="" className="nav-link">
-              About me
-            </Link>
-          </li>
-          <li>
-            <Link href="" className="nav-link">
-              Contact
-            </Link>
-          </li>
-        </List>
-      </div>
+        ))}
+      </List>
     </Nav>
   );
 };

@@ -11,6 +11,7 @@ export const Hero = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 0;
 
   width: 100vw;
   height: 100vh;
