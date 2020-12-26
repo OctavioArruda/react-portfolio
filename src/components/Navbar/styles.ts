@@ -1,12 +1,16 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+interface Props {
+  isOpen: boolean;
+}
 
 export const Nav = styled.nav`
+  z-index: 1;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  z-index: 1;
   background-color: var(--primary-black);
   padding: 0 2rem;
   height: 6rem;  
@@ -26,9 +30,28 @@ export const Nav = styled.nav`
   }
 `;
 
-export const List = styled.ul`
+export const List = styled.ul<Props>`
   display: flex;
   list-style-type: none;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    background-color: var(--primary-black);
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    right: 0;
+    height: calc(100% - 6rem);
+    top: 6rem;
+    transition: transform 0.2s ease-in;
+    transform: translateX(${({ isOpen }) => isOpen ? '0' : '100%' });
+    
+    li {
+      display: flex;
+      flex-grow: 1;
+      align-items: center;
+    }
+  }
 `;
 
 export const Logo = styled.span`
@@ -53,4 +76,30 @@ export const Link = styled.a`
   &:hover {
     color: var(--fourth-red);
   }
+`;
+
+export const ResponsiveButton = styled.button<Props>`
+  background: transparent;
+  
+  div { 
+    width: 2.5rem;
+    height: 0.3rem;
+    background-color: var(--secondary-light);
+    margin: 0.5rem;
+    transition: all 0.3 ease;
+  }
+
+  ${props => props.isOpen ? css`
+    .line-1 {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .line-2 {
+      opacity: 0;
+    }
+
+    .line-3 {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
+  ` : ` `}
 `;
